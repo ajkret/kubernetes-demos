@@ -23,10 +23,22 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: farenheittocelsius
+  name: conversion-cip
 spec:
   selector:
     app: Celsius
   ports:
   - port: 80
     targetPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: conversion-nodeport
+spec:
+  selector:
+    app: Celsius
+  ports:
+  - port: 80
+    targetPort: 8080
+  type: NodePort
