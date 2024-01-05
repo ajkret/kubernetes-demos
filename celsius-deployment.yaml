@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: Celsius
+  template:
+    metadata:
+      labels:
+        app: Celsius
+    spec:
+      containers:
+      - name: celsiusapp
+        image: kubedevio/api-conversao:v1-machine-name
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: farenheittocelsius
+spec:
+  selector:
+    app: Celsius
+  ports:
+  - port: 80
+    targetPort: 8080
