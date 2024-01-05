@@ -1,2 +1,5 @@
 # kubernetes-demos
-k8s demos
+
+Demos from Kubernetes Deployment / Services scripts based on DevOpsPro / KubeDev course
+
+
